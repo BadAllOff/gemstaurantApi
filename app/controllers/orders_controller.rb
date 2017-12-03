@@ -30,6 +30,21 @@ class OrdersController < ApplicationController
     end
   end
 
+  def pay
+    @order = Order.find(params[:id])
+    if @order.total_amount == params[:amount]
+      @receipt = Receipt.new(order: @order, payment_method: params[:payment_method])
+
+      if @receipt.save
+        render json: @receipt, status: 201
+      else
+        render json: @receipt.errors, status: :unprocessable_entity # 422
+      end
+    else
+      render json: {message: "You didn't pay for exact amount: #{@order.total_amount}"}, status: 422
+    end
+  end
+
   private
     # Only allow a trusted parameter "white list" through.
     def order_params
