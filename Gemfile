@@ -11,6 +11,7 @@ gem 'sqlite3'
 gem 'puma', '~> 3.7'
 gem 'kaminari'
 gem 'active_model_serializers'#, github: 'rails-api/active_model_serializers'
+gem 'rack-attack'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

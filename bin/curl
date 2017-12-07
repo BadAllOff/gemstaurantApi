@@ -30,4 +30,15 @@ stats() {
     curl http://localhost:3000/stats
 }
 
+ddos_call {
+    curl http://localhost:3000/orders | ppjson
+    curl http://localhost:3000/orders | ppjson
+    curl http://localhost:3000/orders | ppjson
+    curl http://localhost:3000/orders | ppjson
+    curl http://localhost:3000/orders | ppjson
+    curl http://localhost:3000/orders | ppjson
+    curl http://localhost:3000/orders | ppjson
+    curl http://localhost:3000/orders | ppjson
+}
+
 $1
